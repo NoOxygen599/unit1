@@ -64,3 +64,20 @@ triangle(398, 240, 402, 240, 400, 265);//blackhole top line point
 stroke(208, 153, 219);
 fill(85, 34, 100);
 ellipse(400, 780, 560, 540); 
+strokeWeight(10);
+stroke(255, 255, 255);
+fill(255, 255, 255);
+triangle(256, 197, 280, 210, 325, 130); //head point L
+triangle(544, 197, 520, 210, 475, 130); //head point R
+
+
+rect(370, 160, 60, 1);//middle top line
+
+//filling head
+strokeWeight(0);
+triangle(250, 200, 210, 250, 320, 250);//fill L.1
+triangle(550, 200, 590, 250, 480, 250);//fill R.1
+triangle(45, 170, 100, 280, 210, 250); //fill L.2
+triangle(755, 170, 700, 280, 590, 250); //fill R.2
+triangle(100, 280, 320, 250, 190, 340);
+
