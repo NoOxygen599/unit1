@@ -11,15 +11,24 @@ stroke(0, 0, 0); //r, g, b
 strokeWeight(0); //thickness in pixels
 
 
-background(100, 100 ,100);
+background(0, 0 ,0);
 
 stroke(255, 255, 255); //r, g, b
 strokeWeight(10); //thickness in pixels
 
-stroke(100, 100, 100);
+stroke(255, 255, 255);
 fill(61, 61, 61);
 ellipse(400, 230, 400, 290); //head cover
 ellipse(400, 410, 270, 320); //bottom head cover
+
+
+fill(200, 200, 200);
+rect(300, 200, 50, 100);//top square nub L
+rect(450, 200, 50, 100);//top square nub R
+rect(180, 180, 70, 80); //side square nub L
+rect(550, 180, 70, 80);
+
+
 
 stroke(255, 255, 255);
 line (330, 250, 250, 200); //helmet side spike L.1
@@ -62,9 +71,6 @@ strokeWeight(3.5);
 rect(398, 0, 4, 240);// blackhole top line
 triangle(398, 240, 402, 240, 400, 265);//blackhole top line point 
 
-stroke(208, 153, 219);
-fill(85, 34, 100);
-ellipse(400, 780, 560, 540); //energy ball
 
 strokeWeight(10);
 stroke(255, 255, 255);
@@ -74,7 +80,6 @@ triangle(544, 197, 520, 210, 475, 130); //head point R
 
 
 rect(370, 180, 60, 1);//middle top line
-
 
 
 stroke(0, 0, 0);
@@ -113,6 +118,10 @@ triangle(420, 440, 590, 420, 500, 260); //double shaded R.1
 triangle(340, 430, 380, 440, 390, 500); //double shaded L.2
 triangle(460, 430, 420, 440, 410, 500); //double shaded R.2
 
+rect(300, 200, 50, 100);//top square nub L
+rect(450, 200, 50, 100);//top square nub R
+
+
 
 stroke(255, 255, 255); //r, g, b
 strokeWeight(10); //thickness in pixels
@@ -130,3 +139,32 @@ strokeWeight(3.5);
 rect(398, 0, 4, 240);// blackhole top line
 triangle(398, 240, 402, 240, 400, 265);//blackhole top line point 
 
+//power lines
+strokeWeight(7);
+stroke(193, 35, 159);
+line(300, 410, 270, 390); //pink line L.1
+line(500, 410, 530, 390); //pink line R.1
+line(270, 390, 260, 320); //pink line L.2
+line(530, 390, 540, 320); //pink line R.2
+line(260, 320, 200, 280); //pink line L.3
+line(540, 320, 600, 280); //pink line R.3
+line(200, 280, 180, 325); //pink line L.4
+line(600, 280, 620, 325); //pink line R.4
+line(180, 325, 105, 280); //pink line L.5
+line(620, 325, 695, 280); //pink line R.5
+line(105, 280, 20, 130); //pink line L.6
+line(695, 280, 780, 130); //pink line R.6
+
+
+stroke(255, 255, 255);
+fill(255, 255, 255);
+triangle(280, 430, 310, 475, 300, 410); //bottom point L
+triangle(520, 430, 490, 475, 500, 410); //bottom point R
+
+stroke(208, 153, 219);
+fill(85, 34, 100);
+ellipse(400, 780, 560, 540); //energy ball
+
+
+
+arc(400, 640, 800, 300, radians(340), radians(480));
