@@ -168,4 +168,4 @@ ellipse(400, 780, 560, 540); //energy ball
 
 stroke(255, 255, 255);
 fill(255, 255, 255);
-arc(400, 640, 800, 300, radians(340), radians(480));
+//arc(400, 640, 800, 300, radians(340), radians(480));
