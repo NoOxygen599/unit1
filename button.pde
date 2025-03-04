@@ -1,9 +1,9 @@
 //pallette of colors
 color cream        = #FCFBE3;
-color lightBrown   = #DDCAAA;
-color mediumBrown  = #BC8542;
-color darkBrown    = #9F642C;
-color darkestBrown = #6E3722;
+color lightBrown   = #0FFAE4;
+color mediumBrown  = #2BC963;
+color darkBrown    = #F73737;
+color darkestBrown = #000000;
 color white        = #FFFFFF;
 
 //variables for color selection
@@ -21,37 +21,56 @@ void draw() {
   background(cream);
 
 //buttons
-if (dist(100, 100, mouseX, mouseY) < 50) {
+tactile(650, 500, 50);
+fill(lightBrown);
+circle(650, 500, 100);
+
+
+tactile(400, 500, 50);
+fill(mediumBrown);
+circle(400, 500, 100);
+
+
+tactile(150, 500, 50);
+fill(darkBrown);
+circle(150, 500, 100);
+
+//indicator
+stroke(darkestBrown);
+fill(selectedColor);
+rect(300, 100, 200, 100);
+
+
+
+
+fill(0, 0, 0);
+rect(385, 200, 30, 50);
+rect(340, 250, 120, 4);
+
+
+
+} //end of draw ========================
+
+void tactile (int x, int y, int r) {
+  if (dist(x, y, mouseX, mouseY) < r) {
 stroke(white);
 } else {
 stroke(darkestBrown);
 }
-fill(lightBrown);
-circle(100, 100, 100);
+} // end tactile =========================
 
-fill(mediumBrown);
-circle(100, 300, 100);
-
-fill(darkBrown);
-circle(100, 500, 100);
-
-//indicator
-fill(selectedColor);
-square(300, 100, 400);
-
-} //end of draw ========================
 
 
 void mouseReleased() {
-  if (dist(100, 100, mouseX, mouseY) < 50) {
+  if (dist(650, 500, mouseX, mouseY) < 50) {
     selectedColor = lightBrown;
   }
   
-  if (dist(100, 300, mouseX, mouseY) < 50) {
+  if (dist(400, 500, mouseX, mouseY) < 50) {
     selectedColor = mediumBrown;
   }
   
-  if (dist(100, 500, mouseX, mouseY) < 50) {
+  if (dist(150, 500, mouseX, mouseY) < 50) {
     selectedColor = darkBrown;
   }
 } // end mouseRelease ===========
