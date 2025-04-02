@@ -2,21 +2,34 @@ PImage Mushroom;
 boolean MushroomOn; //true or false
 
 void setup() {
-  size(600, 600);
+  size(800, 800);
   background(255);
   Mushroom = loadImage("Mushroom.png");
   MushroomOn = true;
 }
 
 
-void draw() {
-  fill(255);
 
+
+
+
+
+void draw() {
+ 
+ 
+  
+  //format
+ stroke(255); 
+ fill(188, 188, 188);
+ rect(0, 625, 800, 200);
+
+
+ fill(255);
   //mushroom button
   tactile(0, 0, 100, 100);
   MushroomOnOff();
-  rect(0, 0, 100, 100);
-  image(Mushroom, 25, 25, 50, 50);
+  rect(50, 700, 100, 100);
+  image(Mushroom, 75, 725, 50, 50);
 }
 
 
@@ -35,8 +48,8 @@ void mouseDragged() {
 }
 
 void mouseReleased() {
-  //durian button
-  if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
+  //Mushroom button
+  if (mouseX > 50 && mouseX < 150 && mouseY > 700 && mouseY < 800) {
     MushroomOn = !MushroomOn;
   }
 }
