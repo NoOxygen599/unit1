@@ -1,10 +1,14 @@
 color white = #ffffff;
 color black = #000000;
+color red   = #ff0000;
 
+//player variables -----------------------
+float player1x, player1y, player1d;
+float player2x, player2y, player2d;
+
+// ball varibales--------------------------
 float ballx, bally, balld;
-float vx, vy, ax, ay;
-boolean wKey, aKey, sKey, dKey;
-boolean upKey, downKey, leftKey, rightKey;
+float vx, vy;
 
 
 
