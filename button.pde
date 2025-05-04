@@ -5,14 +5,28 @@ color blue  = #669bbc;
 
 
 void setup() {
-  size (800, 600);
+  size (800, 700);
   background (beige);
-  face(random(100, 500), random(100, 500), random(0.25,1));  //x, y, scale
+  
+  int x, y;
+  x = 50;
+  y = 50;
+  while ( y < 600)  {
+  face(x, y, 0.25);
+  x = x + 150;
+  if (x >= 800) {
+    x = 50;
+    y = y + 150;
+  //face(random(0, 500), random(0, 500), random(0.25,1));  //x, y, scale
+  }
+  }
   
 }
 
 void draw() {
+  
 }
+
 
 
 void face(float x, float y, float s)   {
