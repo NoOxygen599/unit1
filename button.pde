@@ -6,16 +6,12 @@ color blue  = #669bbc;
 
 void setup() {
   size (800, 600);
+  background (beige);
+  face(random(100, 500), random(100, 500), random(0.25,1));  //x, y, scale
   
-  random(0,255);
 }
 
 void draw() {
-  background (beige);
-  face(100, 100, 0.3);  //x, y, scale
-  face(100, 300, 0.5);
-  face(100, 400, 0.5);
-  face(100, 400, 0.5);
 }
 
 
@@ -26,9 +22,13 @@ scale(s);
 
 skin();
 hair();
-eye(100, 200);
-eye(300, 200);
-eye(200, 100);
+float r, g, b;
+r = random(0,255);
+g = random(0,255);
+b = random(0,255);
+eye(100, 200, r, g, b);
+eye(300, 200, r, g, b);
+eye(200, 100, r, g, b);
 mouth();
 
 popMatrix();
@@ -36,7 +36,7 @@ popMatrix();
 }
 
 void skin() {
-  fill(blue);
+  fill(random(0,255), random(0,255) ,random(0,255));
   stroke(black);
   strokeWeight(3);
   rect(0, 0, 400, 400);
@@ -53,10 +53,10 @@ while (x <= 400) {
 strokeWeight(3);
 }
 
-void eye(int x, int y)  {
+void eye(float x, float y, float r, float g, float b)  {
   fill(beige);
   ellipse(x, y, 100, 50);
-  fill(red);
+  fill(r, g, b);
   circle(x, y, 50);
   fill(black);
   circle(x, y, 25);
@@ -71,5 +71,3 @@ void mouth() {
   line(200, 250, 200, 350);
   line(250, 250, 250, 350);
 }
-  
- 
