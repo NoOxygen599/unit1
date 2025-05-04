@@ -1,76 +1,75 @@
-//pallette of colors
-color cream        = #FCFBE3;
-color lightBrown   = #0FFAE4;
-color mediumBrown  = #2BC963;
-color darkBrown    = #F73737;
-color darkestBrown = #000000;
-color white        = #FFFFFF;
+color beige = #fdf0d5;
+color red   = #c1121f;
+color black = #000000;
+color blue  = #669bbc;
 
-//variables for color selection
-color selectedColor;
 
 void setup() {
   size (800, 600);
-  strokeWeight(5);
-  stroke(darkestBrown);
-  selectedColor = darkBrown;
-} // setup end ======================
-
+  
+  random(0,255);
+}
 
 void draw() {
-  background(cream);
-
-//buttons
-tactile(650, 500, 50);
-fill(lightBrown);
-circle(650, 500, 100);
-
-
-tactile(400, 500, 50);
-fill(mediumBrown);
-circle(400, 500, 100);
-
-
-tactile(150, 500, 50);
-fill(darkBrown);
-circle(150, 500, 100);
-
-//indicator
-stroke(darkestBrown);
-fill(selectedColor);
-rect(300, 100, 200, 100);
-
-
-
-
-fill(0, 0, 0);
-rect(385, 200, 30, 50);
-rect(340, 250, 120, 4);
-
-
-
-} //end of draw ========================
-
-void tactile (int x, int y, int r) {
-  if (dist(x, y, mouseX, mouseY) < r) {
-stroke(white);
-} else {
-stroke(darkestBrown);
+  background (beige);
+  face(100, 100, 0.3);  //x, y, scale
+  face(100, 300, 0.5);
+  face(100, 400, 0.5);
+  face(100, 400, 0.5);
 }
-} // end tactile =========================
 
 
+void face(float x, float y, float s)   {
+pushMatrix();
+translate(x, y);
+scale(s);
 
-void mouseReleased() {
-  if (dist(650, 500, mouseX, mouseY) < 50) {
-    selectedColor = lightBrown;
-  }
+skin();
+hair();
+eye(100, 200);
+eye(300, 200);
+eye(200, 100);
+mouth();
+
+popMatrix();
+
+}
+
+void skin() {
+  fill(blue);
+  stroke(black);
+  strokeWeight(3);
+  rect(0, 0, 400, 400);
+}
+
+void hair() {
+strokeWeight(25);
+int x = 0;
+while (x <= 400) {
+  line (x, -50, x, 50);
+  x = x + 50;
+}
+//back to normal strokeweight
+strokeWeight(3);
+}
+
+void eye(int x, int y)  {
+  fill(beige);
+  ellipse(x, y, 100, 50);
+  fill(red);
+  circle(x, y, 50);
+  fill(black);
+  circle(x, y, 25);
+}
+
+
+void mouth() {
+  fill(beige);
+  rect (100, 250, 200, 100);
+  line(100, 300, 300, 300);
+  line(150, 250, 150, 350);
+  line(200, 250, 200, 350);
+  line(250, 250, 250, 350);
+}
   
-  if (dist(400, 500, mouseX, mouseY) < 50) {
-    selectedColor = mediumBrown;
-  }
-  
-  if (dist(150, 500, mouseX, mouseY) < 50) {
-    selectedColor = darkBrown;
-  }
-} // end mouseRelease ===========
+ 
