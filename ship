@@ -1,0 +1,106 @@
+color black = #000000;
+color white = #ffffff;
+
+void setup() {
+  size (1000, 600);
+  background (black);
+  stars();
+ 
+}
+
+
+
+
+
+ int count = 0;
+  while (count < 950) {
+    float s;
+    if ( count < 800) {
+      s = random(0.01, 0.04);
+    }
+    else {
+      s = random(0.05, 0.08);
+    }
+    star(random(0, 1000), random(0, 600), s);
+    count = count + 1;
+  }
+void draw () {
+  
+}
+
+
+
+
+void stars() {
+   int count = 0;
+  while (count < 950) {
+    float s;
+    if ( count < 800) {
+      s = random(0.01, 0.04);
+    }
+    else {
+      s = random(0.05, 0.08);
+    }
+    //float s = count < 800 ? random(0.01, 0.04) :  random(0.05, 0.08);
+    star(random(0, 1000), random(0, 600), s);
+    count = count + 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+void spaceship(float x, float y, float s) {
+  
+  
+}
+
+
+void star(float x, float y, float s) {
+  pushMatrix();
+  translate (x, y);
+  scale(s);
+
+  stroke(white);
+  fill(white);
+  
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+  rotate(PI/4);
+  triangle(-25, 0, 25, 0, 0, 75);
+ 
+ 
+ popMatrix();
+ 
+}
+
+
+
+void point() {
+  //stroke(white);
+ //fill(white);
+ 
+ //triangle(100, 150, 150, 150, 125, 220);
+  
+  
+  
+}
