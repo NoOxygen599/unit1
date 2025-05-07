@@ -83,8 +83,9 @@ if (ballx <= 0) { //right
 vx = vx * -0.9;
 ballx = 0;
 }
-if (ballx >= width) {
+if (ballx >= width) { //left
   vx = vx * -0.9;
+  ballx = 599;
 }
 
 
@@ -92,12 +93,15 @@ if (ballx >= width) {
 //ball bouncing off player
 if (dist(player1x, player1y, ballx, bally) <= player1d/2 + balld/2 ) {
   vx = (ballx - player1x)/5;
-  vy = bally - player1y/5;
+  vy = (bally - player1y)/5;
 }
 
+//ball bouncing off player2
+if (dist(player2x, player2y, ballx, bally) <= player2d/2 + balld/2 ) {
+  vx = (ballx - player2x)/5;
+  vy = (bally - player2y)/5;
 
-
-
+}
 }
 
 void keyPressed() {
