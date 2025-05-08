@@ -5,25 +5,14 @@ void setup() {
   size (1000, 600);
   background (black);
   stars();
- 
+ spaceship(500, 300, 1);
 }
 
 
 
 
 
- int count = 0;
-  while (count < 950) {
-    float s;
-    if ( count < 800) {
-      s = random(0.01, 0.04);
-    }
-    else {
-      s = random(0.05, 0.08);
-    }
-    star(random(0, 1000), random(0, 600), s);
-    count = count + 1;
-  }
+
 void draw () {
   
 }
@@ -58,6 +47,8 @@ void stars() {
 
 
 void spaceship(float x, float y, float s) {
+  
+  rect(0, -15, 50, 30);
   
   
 }
