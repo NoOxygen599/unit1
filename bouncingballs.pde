@@ -6,6 +6,10 @@ color red   = #ff0000;
 float player1x, player1y, player1d;
 float player2x, player2y, player2d;
 
+float aplayer1x, aplayer1y, aplayer1d;
+float aplayer2x, aplayer2y, aplayer2d;
+
+
 // ball varibales--------------------------
 float ballx, bally, balld;
 float vx, vy;
@@ -21,12 +25,21 @@ boolean wKey, sKey, dKey, aKey, upKey, downKey, leftKey, rightKey;
 void setup() {
   size(600, 600, P2D);
   player1x = width/2;
-  player1y = height/2;
+  player1y = 200;
   player1d = 100;
   
-  player2x = width/2;
+  player2x = 200;
   player2y = height/2;
   player2d = 100; 
+  
+  size(600, 600, P2D);
+  aplayer1x = width/2;
+  aplayer1y = 400;
+  aplayer1d = 100;
+  
+  aplayer2x = 400;
+  aplayer2y = height/2;
+  aplayer2d = 100; 
   
   
   //ball setup
@@ -51,6 +64,17 @@ void draw() {
   stroke(white);
   fill(black);
   circle(player2x, player2y, player2d);
+  
+  //second half
+   strokeWeight(3);
+  stroke(black);
+  fill(white);
+  circle(aplayer1x, aplayer1y, aplayer1d); 
+   strokeWeight(3);
+  stroke(white);
+  fill(black);
+  circle(aplayer2x, aplayer2y, aplayer2d);
+
 
 //ball
 strokeWeight(5);
@@ -62,15 +86,19 @@ circle(ballx, bally, balld);
 ballx = ballx + vx;
 bally = bally + vy;
 
-if (wKey) player1y -= 5;
-if (sKey) player1y += 5;
+//if (wKey) player1y -= 5;
+//if (sKey) player1y += 5;
 if (aKey) player1x -= 5;
 if (dKey) player1x += 5;
+if (aKey) aplayer1x -= 5;
+if (dKey) aplayer1x += 5;
 
 if (upKey) player2y -= 5;
 if (downKey) player2y += 5;
-if (leftKey) player2x -= 5;
-if (rightKey) player2x += 5;
+if (upKey) aplayer2y -= 5;
+if (downKey) aplayer2y += 5;
+//if (leftKey) player2x -= 5;
+//if (rightKey) player2x += 5;
 
 //bouncing code
 if (bally <= 0) { //top
@@ -100,6 +128,16 @@ if (dist(player1x, player1y, ballx, bally) <= player1d/2 + balld/2 ) {
 if (dist(player2x, player2y, ballx, bally) <= player2d/2 + balld/2 ) {
   vx = (ballx - player2x)/5;
   vy = (bally - player2y)/5;
+}
+  if (dist(aplayer1x, aplayer1y, ballx, bally) <= aplayer1d/2 + balld/2 ) {
+  vx = (ballx - aplayer1x)/5;
+  vy = (bally - aplayer1y)/5;
+}
+
+//ball bouncing off player2
+if (dist(aplayer2x, aplayer2y, ballx, bally) <= aplayer2d/2 + balld/2 ) {
+  vx = (ballx - aplayer2x)/5;
+  vy = (bally - aplayer2y)/5;
 
 }
 }
