@@ -8,7 +8,7 @@ color[] blue_colors = {#0039FF, #6687F7, #106FAD, #386DF0, #54ADBC };
 void setup() {
   size (1000, 600);
   background (black);
-  stars();
+  stars(600);
   spaceships (50, 50);
 }
 
@@ -24,15 +24,15 @@ void draw () {
 
 
 
-void stars() {
-   int count = 0;
-  while (count < 950) {
+void stars(int n) {
+  int count = 0;
+  while (count < n) {
     float s;
-    if ( count < 800) {
-      s = random(0.01, 0.04);
+    if ( count < n*0.9) {
+      s = random(0.01, 0.04);  // small stars ---------------------------------
     }
     else {
-      s = random(0.05, 0.08);
+      s = random(0.05, 0.08);  // big stars -----------------------------------
     }
     //float s = count < 800 ? random(0.01, 0.04) :  random(0.05, 0.08);
     star(random(0, width), random(0, height), s);
@@ -75,23 +75,31 @@ void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean 
   pushMatrix();
   translate (x, y);
   scale(s);
+  strokeWeight(0.4);
+  stroke(0);
+
+  // draw left to right?
   if ( l2r ) {
     rotate(PI);
   }
-  strokeWeight(0.4);
-  stroke(0);
+  
+  // draw engines
   fill(c1);
   rect(50, 26, 10, 23);
   rect(50, -26, 10, -23);
-  //rect(
+
+  // draw body
   fill(c2);
   rect(0, -15, 50, 30);
+  
+  // draw wings
   fill(c3);
-  triangle(55, -15, 50, -65, -50, -15);
-  triangle(-50, 15, 55, 15, 50, 65);
+  triangle(-50, -15, 55, -15, 50, -65);
+  triangle(-50,  15, 55,  15, 50,  65);
+  
+  // draw cockpit
   fill(yellow);
   triangle(25, 0, 0, -5, 0, 5);
- 
   
   popMatrix();
   
@@ -105,25 +113,12 @@ void star(float x, float y, float s) {
 
   stroke(white);
   fill(white);
+
+  for (int i = 0; i < 8; i++) {
+    rotate(PI/4);
+    triangle(-25, 0, 25, 0, 0, 75);
+  }
   
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
-  rotate(PI/4);
-  triangle(-25, 0, 25, 0, 0, 75);
- 
- 
  popMatrix();
  
 }
