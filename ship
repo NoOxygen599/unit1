@@ -3,13 +3,16 @@ color white = #ffffff;
 color yellow = #E8CB3B;
 color[] red_colors = {#F54346, #BC191B, #7E1315, #954142, #FF2C2F };
 color[] blue_colors = {#0039FF, #6687F7, #106FAD, #386DF0, #54ADBC };
-
-
+color grey = #838383;
+color darkgrey = #4D4D4D;
 void setup() {
   size (1000, 600);
   background (black);
   stars(600);
+  planetstroids(15);
   spaceships (50, 50);
+  planetstroids(4);
+  
 }
 
 
@@ -44,11 +47,13 @@ void stars(int n) {
 void spaceships(int nr, int nb) {
   for (int i =0; i < nr; i++) {
     float s = i < nr - 4 ? random(0.06, 0.2) : random(0.4, 1);
-    red_spaceship(random(width/2, width), random(0, height), s);
+    float x = i < nr - 4 ? random(width/2.2, width) : random(width/1.7, width);
+    red_spaceship(x, random(0, height), s);
   }
   for (int i =0; i < nb; i++) {
     float s = i < nb - 4 ? random(0.06, 0.2) : random(0.4, 1);
-    blue_spaceship(random(0, width/2), random(0, height), s);
+    float x = i < nb - 4 ? random(0, width/1.8) : random(0, width/2.3);
+    blue_spaceship(x, random(0, height), s);
   }
   
 }
@@ -69,7 +74,13 @@ void blue_spaceship(float x, float y, float s) {
 }
 
 
-
+void wings(color c) {
+  // draw wings
+  float r = random(20, 70);
+  fill(c);
+  triangle(-50, -15, 55, -15, r, -65);
+  triangle(-50,  15, 55,  15, r,  65);
+}
 
 void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean l2r) {
   pushMatrix();
@@ -88,14 +99,13 @@ void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean 
   rect(50, 26, 10, 23);
   rect(50, -26, 10, -23);
 
+  wings(c3);
+  
   // draw body
   fill(c2);
   rect(0, -15, 50, 30);
   
-  // draw wings
-  fill(c3);
-  triangle(-50, -15, 55, -15, 50, -65);
-  triangle(-50,  15, 55,  15, 50,  65);
+  
   
   // draw cockpit
   fill(yellow);
@@ -104,6 +114,46 @@ void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean 
   popMatrix();
   
 }
+
+void planetstroids(int n) {
+  int count = 0;
+  while (count < n) {
+    float s = random(0.01, 1);  
+    planetstroid(random(0, width), random(0, height), s);
+    count = count + 1;
+  }
+}
+
+void planetstroid(float x, float y, float s) {
+  pushMatrix();
+  translate(x, y);
+  scale(s);
+  stroke(grey);
+  fill(grey);
+  circle(0, 0, 50);
+  craters(4,s*50);
+  popMatrix();
+  
+}
+
+void craters(int nc, float m) {
+  for(int i = 0; i < nc; i++){
+    float z = random(1, m);
+    float x = random(-(m - z) , m - z);
+    float y = random(-(m - z) , m - z);
+    crater(x, y, z);
+  }
+                                  
+}
+
+void crater(float x, float y, float z) {
+  pushMatrix();
+  fill(darkgrey);
+  ellipse(x, y, random(1, z), random(1, z));   
+  
+  popMatrix();
+}
+
 
 
 void star(float x, float y, float s) {
