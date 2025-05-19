@@ -16,34 +16,23 @@ void setup() {
   
 }
 
-
-
-
-
-
-void draw () {
-  
-}
-
-
-
-
+//----------------------------------------------------------------------------------------------------
 void stars(int n) {
   int count = 0;
   while (count < n) {
     float s;
     if ( count < n*0.9) {
-      s = random(0.01, 0.04);  // small stars ---------------------------------
+      s = random(0.01, 0.04);  // small stars 
     }
     else {
-      s = random(0.05, 0.08);  // big stars -----------------------------------
+      s = random(0.05, 0.08);  // big stars 
     }
     //float s = count < 800 ? random(0.01, 0.04) :  random(0.05, 0.08);
     star(random(0, width), random(0, height), s);
     count = count + 1;
   }
 }
-
+//---------------------------------------------------------------------------------------------------------
 void star(float x, float y, float s) {
   pushMatrix();
   translate (x, y);
@@ -60,7 +49,7 @@ void star(float x, float y, float s) {
  popMatrix();
  
 }
-
+//-----------------------------------------------------------------------------------------------------------
 void spaceships(int nr, int nb) {
   for (int i =0; i < nr; i++) {
     float s = i < nr - 4 ? random(0.06, 0.2) : random(0.4, 1);
@@ -74,7 +63,7 @@ void spaceships(int nr, int nb) {
   }
   
 }
-
+//----------------------------------------------------------------------------------------------------
 void red_spaceship(float x, float y, float s) {
   color r1 = red_colors[int (random(0, red_colors.length)-1)];
   color r2 = red_colors[int (random(0, red_colors.length)-1)];
@@ -82,7 +71,7 @@ void red_spaceship(float x, float y, float s) {
   spaceship(x, y, s, r1, r2, r3, false); 
 }
 
-
+//-----------------------------------------------------------------------------------------------------
 void blue_spaceship(float x, float y, float s) {
   color b1 = blue_colors[int (random(0, blue_colors.length)-1)];
   color b2 = blue_colors[int (random(0, blue_colors.length)-1)];
@@ -90,7 +79,7 @@ void blue_spaceship(float x, float y, float s) {
   spaceship(x, y, s, b1, b2, b3, true); 
 }
 
-
+//-----------------------------------------------------------------------------------------------------
 void wings(color c) {
   // draw wings
   float r = random(20, 70);
@@ -98,7 +87,7 @@ void wings(color c) {
   triangle(-50, -15, 55, -15, r, -65);
   triangle(-50,  15, 55,  15, r,  65);
 }
-
+//-------------------------------------------------------------------------------------------------------
 void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean l2r) {
   pushMatrix();
   translate (x, y);
@@ -128,12 +117,37 @@ void spaceship(float x, float y, float s, color c1, color c2, color c3, boolean 
   triangle(25, 0, 0, -5, 0, 5);
   
   if (random(1, 100) > 50) {
-    lazer(-20, 0);
+    lazer(-20, 0, c1);
   }
     
   popMatrix();
 }
+//----------------------------------------------------------------
+void lazer(float x, float y, color c) {
+ 
+  
+ float pr = random(40, 170);
+ pushMatrix();
+ stroke(yollow);
+ strokeWeight(4);
+ translate(x, y);
 
+ //for (int i = 0; i < int(pr/10); i=i+40) {
+ int i=0;
+ while ( i < pr){
+   println(i);
+   line(-i, 0, -i-10, 0);
+   i = i+20;
+ } 
+ stroke(c);
+ strokeWeight(2);
+ //fill(255);
+ rect(-i - 30, -3, 30, 6);
+
+ popMatrix();
+  
+}
+//------------------------------------------------------
 void planetstroids(int n) {
   int count = 0;
   while (count < n) {
@@ -142,13 +156,14 @@ void planetstroids(int n) {
     count = count + 1;
   }
 }
-
+//-----------------------------------------------------
 void planetstroid(float x, float y, float s) {
   pushMatrix();
   translate(x, y);
   scale(s);
   rotate(random(-PI*2, PI/2));
-  stroke(grey);
+  strokeWeight(1);
+  stroke(darkgrey);
   fill(grey);
   circle(0, 0, 50);
   fill(darkgrey);
@@ -165,81 +180,3 @@ void planetstroid(float x, float y, float s) {
 
 
 
-void lazer(float x, float y) {
- 
- float pr = random(40, 170);
- pushMatrix();
- stroke(yollow);
- strokeWeight(4);
- translate(x, y);
-
- //for (int i = 0; i < int(pr/10); i=i+40) {
- int i=0;
- while ( i < pr){
-   println(i);
-   line(-i, 0, -i-10, 0);
-   i = i+20;
- }
-
- popMatrix();
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//void craters(int nc, float m) {
- // for(int i = 0; i < nc; i++){
-  //  float z = random(1, m);
-   // float x = random(-(m - z) , m - z);
-   // float y = random(-(m - z) , m - z);
-    //crater(x, y, z);
-
-                                  
-
-
-//void crater(float x, float y, float z) {
- // pushMatrix();
- // fill(darkgrey);
-  //ellipse(x, y, random(1, z), random(1, z));   
-  
-  //popMatrix();
-
-
-
-
-
-
-
-
-void point() {
-  //stroke(white);
- //fill(white);
- 
- //triangle(100, 150, 150, 150, 125, 220);
-  
-  
-  
-}
