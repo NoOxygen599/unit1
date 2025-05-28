@@ -1,6 +1,13 @@
 //pong
 //2-3
 
+//colors
+color lightPurple = #BF9A82;
+color brown = #45201E;
+color pink = #FF0F53;
+color green = #558A67;
+
+
 //mode framework
 int mode;
 final int INTRO    = 1;
@@ -11,6 +18,9 @@ final int GAMEOVER = 4;
 //entity variabled
 float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld; //ball
+
+//scoreing
+int leftscore, rightscore, timer;
 
 //keyboard variables
 boolean wkey, skey, upkey, downkey;
