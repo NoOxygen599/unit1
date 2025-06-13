@@ -49,7 +49,7 @@ void setup() {
   //initialize ball
   ballx = width/2;
   bally = height/2;
-  balld = 100;
+  balld = 75;
   
   
   vx = 5;
