@@ -40,11 +40,11 @@ void setup() {
   //initalize paddles
   leftx = 0;
   lefty = height/2;
-  leftd = 200;
+  leftd = 100;
   
   rightx = width;
   righty = height/2;
-  rightd = 200;
+  rightd = 100;
   
   //initialize ball
   ballx = width/2;
