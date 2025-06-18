@@ -52,8 +52,16 @@ void setup() {
   balld = 75;
   
   
-  vx = 5;
-  vy = 5;
+  vx = random(-5,5);
+  vy = random(-5,5);
+  
+  //initialize score
+  rightscore = leftscore = 0;
+  
+  timer = 100;
+  
+  
+  
   
   //initialize keyboard vars
   wkey = skey = upkey = downkey = false;
