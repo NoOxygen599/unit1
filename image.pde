@@ -16,11 +16,21 @@ color selectedColor;
 
 String buttonSelected = "mushroom";
 
+//slider
+float sliderX;
+
 void setup() {
   size(800, 800);
   background(backgroundcolor);
   Mushroom = loadImage("c:/Temp/onepunch.jpg");
   MushroomOn = true;
+  
+pushMatrix();
+strokeWeight(5);
+fill(red);
+sliderX = 628;
+popMatrix();
+
 }
 
 void draw() {
@@ -42,7 +52,7 @@ void drawControlPanel(){
   
   //yellow button
   stroke( buttonSelected == "yellow" ? outline : black );
-  strokeWeight( buttonSelected == "line" ? 6 : 3 );
+  strokeWeight( buttonSelected == "yellow" ? 6 : 3 );
   fill(yellow);
   circle( 300, 670, 40);
   
@@ -81,8 +91,14 @@ void drawControlPanel(){
   image(Mushroom, 76, 671, 78, 78);  
   
 
-  
-  
+  //slider
+  pushMatrix();
+  strokeWeight(3);
+  stroke(black);
+  line (500, 700, 750, 700);
+  fill(red);
+  circle(sliderX, 700, 50);
+  popMatrix();
   
   
   
@@ -126,6 +142,13 @@ void mouseDragged() {
     stroke(black);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
+   
+   
+   //slider
+  if (mouseX > 500 && mouseX < 750 && mouseY > 675 && mouseY < 725) {
+      sliderX = mouseX;
+  }
+  
 }
 
 void mouseReleased() {
@@ -139,24 +162,30 @@ void mouseReleased() {
     buttonSelected = "red";
     drawControlPanel();
   }
-   else if ( dist(300, 670, mouseX, mouseY) < 20 ){
+  else if ( dist(300, 670, mouseX, mouseY) < 20 ){
     buttonSelected = "yellow";
     drawControlPanel();
   }
-    else if ( dist(350, 670, mouseX, mouseY) < 20 ){
+  else if ( dist(350, 670, mouseX, mouseY) < 20 ){
     buttonSelected = "green";
     drawControlPanel();
     }
-else if ( dist(250, 725, mouseX, mouseY) < 20 ){
+  else if ( dist(250, 725, mouseX, mouseY) < 20 ){
     buttonSelected = "blue";
     drawControlPanel();
   }
   else if ( dist(300, 725, mouseX, mouseY) < 20 ){
     buttonSelected = "purple";
     drawControlPanel();
+    
   }else if ( dist(350, 725, mouseX, mouseY) < 20 ){
     buttonSelected = "black";
     drawControlPanel();
+  }
+  
+  //slider 
+  if (mouseX > 500 && mouseX < 750 && mouseY > 675 && mouseY < 725) {
+      sliderX = mouseX;
   }
 }
 
