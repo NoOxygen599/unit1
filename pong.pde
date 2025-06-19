@@ -69,7 +69,6 @@ void setup() {
 
 
 void draw() {
-  background(0);
   if (mode == INTRO) {
    intro();
   } else if (mode == GAME) {
