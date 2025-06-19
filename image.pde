@@ -11,6 +11,8 @@ color black   = #000000;
 color lightgray = #BCBCBC;
 color purple = #9705FA;
 
+float size;
+
 //variable color selection
 color selectedColor;
 
@@ -28,8 +30,10 @@ void setup() {
 pushMatrix();
 strokeWeight(5);
 fill(red);
-sliderX = 628;
+sliderX = 505;
 popMatrix();
+
+
 
 }
 
@@ -80,6 +84,11 @@ void drawControlPanel(){
   fill(black);
   circle( 350, 725, 40);
   
+  //all white
+  //pushMatrix();
+  //rect(400, 730, 70, 30);
+  //fill(ffffff);
+  //ktext();
   
  
   
@@ -113,41 +122,39 @@ void mouseDragged() {
     image(Mushroom, mouseX - 50, mouseY - 50, 100, 100);
   }
   else if (buttonSelected == "red" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(red);
     line(pmouseX, pmouseY, mouseX, mouseY);
   }
    else if (buttonSelected == "yellow" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(yellow);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    else if (buttonSelected == "green" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(green);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
     else if (buttonSelected == "blue" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(blue);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    else if (buttonSelected == "purple" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(purple);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
     else if (buttonSelected == "black" ) {
-    strokeWeight(5);
+    strokeWeight(sliderX - 500);
     stroke(black);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    
    
    //slider
-  if (mouseX > 500 && mouseX < 750 && mouseY > 675 && mouseY < 725) {
-      sliderX = mouseX;
-  }
+  controlSlider(); 
   
 }
 
@@ -184,9 +191,8 @@ void mouseReleased() {
   }
   
   //slider 
-  if (mouseX > 500 && mouseX < 750 && mouseY > 675 && mouseY < 725) {
-      sliderX = mouseX;
-  }
+  controlSlider(); 
+ 
 }
 
 void tactile(int x, int y, int w, int h) {
@@ -194,4 +200,17 @@ void tactile(int x, int y, int w, int h) {
   } else {
     fill(255);
   }
+}
+
+
+
+
+
+
+
+void controlSlider() {
+  if (mouseX > 500 && mouseX < 750 && mouseY > 675 && mouseY < 725) {
+      sliderX = mouseX;
+  }
+  
 }
