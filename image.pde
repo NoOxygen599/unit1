@@ -85,10 +85,10 @@ void drawControlPanel(){
   circle( 350, 725, 40);
   
   //all white
-  //pushMatrix();
-  //rect(400, 730, 70, 30);
-  //fill(ffffff);
-  //ktext();
+ 
+  rect(400, 730, 70, 30);
+  fill(0);
+  
   
  
   
@@ -101,13 +101,13 @@ void drawControlPanel(){
   
 
   //slider
-  pushMatrix();
+  
   strokeWeight(3);
   stroke(black);
   line (500, 700, 750, 700);
   fill(red);
   circle(sliderX, 700, 50);
-  popMatrix();
+  
   
   
   
@@ -122,32 +122,32 @@ void mouseDragged() {
     image(Mushroom, mouseX - 50, mouseY - 50, 100, 100);
   }
   else if (buttonSelected == "red" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(red);
     line(pmouseX, pmouseY, mouseX, mouseY);
   }
    else if (buttonSelected == "yellow" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(yellow);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    else if (buttonSelected == "green" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(green);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
     else if (buttonSelected == "blue" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(blue);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    else if (buttonSelected == "purple" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(purple);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
     else if (buttonSelected == "black" ) {
-    strokeWeight(sliderX - 500);
+    strokeWeight((sliderX - 500)/2);
     stroke(black);
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
@@ -192,7 +192,12 @@ void mouseReleased() {
   
   //slider 
   controlSlider(); 
- 
+  
+  
+  //all white
+  if (mouseX > 400 && mouseX < 470 && mouseY > 730 && mouseY < 760) {
+ background(backgroundcolor); 
+  }
 }
 
 void tactile(int x, int y, int w, int h) {
