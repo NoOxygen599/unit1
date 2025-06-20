@@ -24,7 +24,7 @@ float sliderX;
 void setup() {
   size(800, 800);
   background(backgroundcolor);
-  Mushroom = loadImage("c:/Temp/onepunch.jpg");
+  Mushroom = loadImage("Mushroom.png");
   MushroomOn = true;
   
 pushMatrix();
@@ -85,10 +85,11 @@ void drawControlPanel(){
   circle( 350, 725, 40);
   
   //all white
- 
+ pushMatrix();
+ noStroke();
   rect(400, 730, 70, 30);
   fill(0);
-  
+  popMatrix();
   
  
   
@@ -117,6 +118,7 @@ void drawControlPanel(){
 
 
 void mouseDragged() {
+  if (pmouseY < 621) {
   if (buttonSelected == "mushroom") {
     //mushroom drawing
     image(Mushroom, mouseX - 50, mouseY - 50, 100, 100);
@@ -152,10 +154,11 @@ void mouseDragged() {
     line(pmouseX, pmouseY, mouseX, mouseY);
    }
    
-   
+  }
    //slider
   controlSlider(); 
   
+
 }
 
 void mouseReleased() {
