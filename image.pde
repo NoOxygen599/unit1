@@ -87,16 +87,24 @@ void drawControlPanel(){
   circle( 350, 725, 40);
   
   //all white
- pushMatrix();
- noStroke();
+  pushMatrix();
+  noStroke();
+  fill(255);
   rect(400, 730, 70, 30);
+  popMatrix();
+  
+  //load button
+  pushMatrix();
+  noStroke();
   fill(0);
+  rect(400, 690, 70, 30);
   popMatrix();
   
   pushMatrix();
   noStroke();
-  rect( 400, 650, 70, 30);
   fill(yellow);
+  rect( 400, 650, 70, 30);
+ 
   popMatrix();
   
  
@@ -128,7 +136,17 @@ void saveImage(File f) {
   }
 }
 
-
+ void openImage(File f) {
+   if (f != null) {
+     //KLUDGE
+     int n= 0;
+     while (n < 10) {
+       PImage pic = loadImage(f.getPath());
+       image(pic, 0, 0);
+       n = n + 1;
+     }
+   }
+ }
 
 
 void mouseDragged() {
@@ -216,6 +234,10 @@ void mouseReleased() {
  background(backgroundcolor); 
   }
   
+  //load button
+  if(mouseX > 400 && mouseX < 470 && mouseY > 690 && mouseY < 720) {
+    selectInput("Pick an image to load", "openImage");
+  }
   
   //save button
   if(mouseX > 400 && mouseX < 470 && mouseY > 650 && mouseY < 680) {
