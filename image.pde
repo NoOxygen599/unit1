@@ -24,7 +24,7 @@ float sliderX;
 void setup() {
   size(800, 800);
   background(backgroundcolor);
-  Mushroom = loadImage("Mushroom.png");
+  Mushroom = loadImage("c:/Temp/onepunch.jpg");
   MushroomOn = true;
   
 pushMatrix();
@@ -36,6 +36,8 @@ popMatrix();
 
 
 }
+
+
 
 void draw() {
   drawControlPanel();
@@ -91,6 +93,12 @@ void drawControlPanel(){
   fill(0);
   popMatrix();
   
+  pushMatrix();
+  noStroke();
+  rect( 400, 650, 70, 30);
+  fill(yellow);
+  popMatrix();
+  
  
   
   //mushroom button
@@ -109,12 +117,18 @@ void drawControlPanel(){
   fill(red);
   circle(sliderX, 700, 50);
   
-  
-  
-  
-  
-  
+
 }
+
+
+void saveImage(File f) {
+  if (f != null) {
+    PImage canvas = get ( 0, 0, width, height-175);
+    canvas.save(f.getAbsolutePath());
+  }
+}
+
+
 
 
 void mouseDragged() {
@@ -201,6 +215,12 @@ void mouseReleased() {
   if (mouseX > 400 && mouseX < 470 && mouseY > 730 && mouseY < 760) {
  background(backgroundcolor); 
   }
+  
+  
+  //save button
+  if(mouseX > 400 && mouseX < 470 && mouseY > 650 && mouseY < 680) {
+    selectOutput("Choose a name for your new image file","saveImage");
+}
 }
 
 void tactile(int x, int y, int w, int h) {
