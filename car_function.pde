@@ -3,6 +3,8 @@ color red   = #c1121f;
 color black = #000000;
 color blue  = #669bbc;
 color window = #B5F5FC;
+color seat = #864300; 
+color bump = #CECECE;
 
 void setup() {
   size (800, 600);
@@ -20,10 +22,13 @@ translate(x, y);
 
 body();
 window ();
+seat(100, -30);
+seat(200, -30);
 wheel(80, 60);
 wheel(310, 60);
 door(200, 100);
-
+bump(-10,30);
+bump(380, 30); 
 
 popMatrix();
 
@@ -42,6 +47,11 @@ void window() {
   
 }
 
+void seat(int x, int y) {
+  fill(seat);
+  rect (x, y, 10, 30); 
+}
+
 void wheel(int x, int y)  {
 
   fill(black);
@@ -58,4 +68,9 @@ void door(int x, int y) {
   line(150, 250, 150, 350);
   line(200, 250, 200, 350);
   line(250, 250, 250, 350);
+}
+
+void bump(int x, int y) {
+ fill(bump);
+  rect(x, y, 30, 20);
 }
