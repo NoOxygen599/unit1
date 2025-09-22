@@ -1,12 +1,21 @@
-  PImage[] gif;
-int NoF
+PImage[] gif;
+int NoF;
 
 void setup() {
+  size(800, 800);
+  NoF = 10;
+  gif = new PImage[NoF];
   
-  Nof = 10
-  gif = new PImage[10];
-}
+  int i = 0;
+  while (i < NoF) {
+     gif[i] = loadImage("img("+i+").gif");
+     i=i+1;
+  }
+  
 
-void show() {
+
+}
+void draw() {
+  image(gif[0], 0, 0, width, height);
   
 }
