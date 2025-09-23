@@ -27,13 +27,26 @@ void draw() {
  
  fill(#B4B4B4);
  circle(550, 300, 50);
+ fill(0);
+ triangle(540, 280, 540, 320, 570, 300); 
+ 
+ 
  
 }
  
 void mouseReleased() {
   if(dist(550, 300, mouseX, mouseY) < 50) {
-    mode = mode + 1;
+    if(mode == PATTERN1){
+      mode = PATTERN2;
+    } else if (mode == PATTERN2){
+      mode = PATTERN3;
+    } else if (mode == PATTERN3){
+      mode = PATTERN1;
+    }
+ 
+  }
 }
+
 
 
 Pattern 1;
@@ -51,15 +64,16 @@ void drawPattern1() {
 
 patter 2; 
 void drawPattern2(){
-   v -= 0.05;
+  v -= 0.05;
    for (int y = 0; y < rows; y++) {
       for(int x = 0; x < cols; x++) {
          float n=noise(x * 0.2 +v, y * 0.1 +v);
-         fill(n * random(20),n * 2,n * 130); 
+         fill(n * random(250),n * 70,n * 50); 
          rect( x * cellSize, y * cellSize, cellSize, cellSize);
       }
    }
 }
+  
 
 
 pattern 3;
@@ -80,3 +94,4 @@ void drawPattern3(){
 
 
  
+
