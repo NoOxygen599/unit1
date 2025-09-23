@@ -49,7 +49,7 @@ void mouseReleased() {
 
 
 
-Pattern 1;
+//Pattern 1;
 void drawPattern1() {
    v -= 0.05;
    for (int y = 0; y < rows; y++) {
@@ -62,7 +62,7 @@ void drawPattern1() {
 }
 
 
-patter 2; 
+//patter 2; 
 void drawPattern2(){
   v -= 0.05;
    for (int y = 0; y < rows; y++) {
@@ -76,7 +76,7 @@ void drawPattern2(){
   
 
 
-pattern 3;
+//pattern 3;
 void drawPattern3(){
    v -= 0.05;
    for (int y = 0; y < rows; y++) {
@@ -94,4 +94,5 @@ void drawPattern3(){
 
 
  
+
 
