@@ -34,9 +34,18 @@ class Button {
     
     //textlabel
     textAlign(CENTER, CENTER);
-    if (mouseX > x-w/w && mouseX < x=w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
+    if (mouseX > x-w/w && mouseX < x+w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
       fill(normal);
     } else {
       fill(highlight);
     }
     textSize(w/4);
+    text(text, x, y);
+    
+    if (mouseReleased && mouseX > x-w/2 && mouseX < x+w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
+      clicked = true;
+    } else {
+      clicked = false;
+    }
+  }
+}
