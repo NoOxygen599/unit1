@@ -8,19 +8,22 @@ final int GAMEOVER = 2;
 int randomWord  = (int) random(0,4);
 int randomColor = (int) random(0,4);
 
+//score
+int Score = 0;
+
 color red    = #FA0000;
 color green  = #33C404;
 color blue   = #03ADFF;
 color yellow = #FFD603;
 
-String[] words = {"RED", "GREEN", "BLUE", "YELLOW"};
-color[] colors = {red, green, blue, yellow};
+
 
 void setup() {
   size (600, 600); 
-  textSize(100);
+ // textSize(50);
   textAlign(CENTER,CENTER);
   mode = INTRO; 
+  
 }
 
 
@@ -33,6 +36,16 @@ void draw() {
     gameover();
   }
   
-  fill(colors[randomColor]);
-  text(words[randomWord], width/2, height/2);
+  
 }
+
+void mouseReleased() {
+  if (mode == INTRO) {
+    if (mouseX > 170 && mouseX < 440 && mouseY > 400 && mouseY < 480) {
+      mode = GAME;
+    }
+  }
+}
+
+
+
