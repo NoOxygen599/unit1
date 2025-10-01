@@ -22,8 +22,8 @@ class Button {
   void show() {
     //rectangle
     rectMode(CENTER);
-    textAlign(CENTER. CENTER);
-    if (mouseX > x-w/w && mouseX < x=w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
+    textAlign(CENTER, CENTER);
+    if (mouseX > x-w/w && mouseX < x+w/2 && mouseY > y-h/2 && mouseY < y+h/2) {
       fill(highlight);
     } else {
       fill(normal);
