@@ -40,12 +40,16 @@ void draw() {
 }
 
 void mouseReleased() {
+  if (mode == GAME) {
+      randomWord = (int) random(0, 4);
+      randomColor = (int) random(0, 4);
+  }
   if (mode == INTRO) {
     if (mouseX > 170 && mouseX < 440 && mouseY > 400 && mouseY < 480) {
       mode = GAME;
+    
     }
   }
 }
-
 
 
