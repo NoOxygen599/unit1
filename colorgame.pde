@@ -1,3 +1,15 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+Minim minim;
+AudioPlayer song;
+
+
+
 //MODE VARIABLES
 int mode;
 final int INTRO = 0;
@@ -19,11 +31,15 @@ color yellow = #FFD603;
 
 
 void setup() {
-  size (600, 600); 
+  size (600, 600);
+  
  // textSize(50);
   textAlign(CENTER,CENTER);
   mode = INTRO; 
   
+  minim = new Minim(this);
+  song = minim.loadFile("MUSIC.mp3");
+  song.play();
 }
 
 
@@ -47,9 +63,6 @@ void mouseReleased() {
   if (mode == INTRO) {
     if (mouseX > 170 && mouseX < 440 && mouseY > 400 && mouseY < 480) {
       mode = GAME;
-    
     }
   }
 }
-
-
