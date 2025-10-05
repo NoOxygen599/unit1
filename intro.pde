@@ -1,5 +1,4 @@
 void intro() {
-  background(#B854FC);
   //text
   textSize(52);
   fill(yellow);
@@ -9,7 +8,6 @@ void intro() {
    text ("Color Match Game", width/2, height/3);
    
 
-  
  
  //button 
  fill(red);
@@ -18,4 +16,3 @@ void intro() {
   text("START", width/2, 440);
 }
   
-
